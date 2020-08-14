@@ -22,7 +22,6 @@ class OpencouponController extends Controller
         date_default_timezone_set("Asia/Bangkok");
 
 
-        // if()
         $val['citizenid']   =$r->citizenid;
         $val['prefixname']  =$r->prefixname;
         $val['religion']    =$r->religion;
@@ -34,7 +33,7 @@ class OpencouponController extends Controller
         $val['phone']       =$r->phone;
         DB::table('patient')->insert($val);
         $pid = DB::getPdo()->lastInsertId();
-        //dd($id);
+
 
         $value['add_on_pk']         =jsonEncode($r->addon);
         $value['coupon_package']    =$r->package_id;
@@ -141,6 +140,16 @@ class OpencouponController extends Controller
                 echo "sssusername หรือ password ไม่ถูกต้อง";
             }
         }
+    }
+    public function show()
+    {
+
+        return view('opencoupon.show');
+    }
+    public function update(Request $r, $id)
+    {
+        dd($r);
+        return view('opencoupon.show');
     }
 
 

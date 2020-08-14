@@ -161,12 +161,16 @@ body{
              เปิด package</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link " href="{{url('')}}/opencoupon/1" tabindex="-1" aria-disabled="true">
+            package ใหม่</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
               ชำระเงิน</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <label>
+          <label style="padding: 0;">
             ชื่อผู้ใช้&nbsp;:&nbsp;
             {{Auth::user()->firstname}}&nbsp;&nbsp;{{Auth::user()->lastname}}
             &nbsp;&nbsp;<font color="red" font-size="5"><b>(&nbsp;
@@ -213,7 +217,7 @@ body{
                               }
                       @endphp
                       <input type="hidden" name="barcode" id="barcode" value="{{$result}}">
-                                <table style="wieght:100%" style="">
+                                <table style="wieght:100%;margin: auto;" style="">
                                     <tr><td colspan="3"><center><h3>ข้อมูล</h3></center></td></tr>
                                     <tr>
                                         <td colspan="3"><font size="4" color="red">*</font>&nbsp;ชื่อ-สกุล : </td></tr>

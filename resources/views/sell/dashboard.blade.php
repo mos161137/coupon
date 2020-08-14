@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SAMITIVEJ SRIRACHA</title>
   <link rel = "icon" href="{{url('')}}/logo/icon.png"
-        type = "image/x-icon"> 
+        type = "image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="{{url('')}}/css/simple-sidebar.css" rel="stylesheet" />
@@ -35,13 +35,13 @@
   label{
     color: #000000;
   }
-  
+
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
   padding-top: 50px;
-  
+
 }
 
 #customers td, #customers th {
@@ -66,7 +66,7 @@
 }
 #mms{
   margin-left: 10px;
-  
+
 }
 .pad_l{
   padding-left: 30px !important;
@@ -130,13 +130,13 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-  
+
 </style>
   </head>
 <body>
   {{-- โมดูล --}}
 
- 
+
 
     <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,7 +151,7 @@
         <div class="modal-body" style="padding-left: 22%;">
             {{Form::open(['url'=>'dashboard@show'])}}
 
-        
+
           E-mail : <input type="text" name="packageid" id="packageid" style="border-radius: 10px;
           width: 47%;
           text-align: center;
@@ -161,7 +161,7 @@
           ชื่อผู้ชื้อ : <input type="text" style="border: none;" name="name_user" id="name_user"><br>
           ชื่อ Package : <input type="text" style="border: none;" name="package_name" id="package_name">
           <input type="hidden" name="coupon_id" id="coupon_id">
-       
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
@@ -188,7 +188,7 @@
       <div class="modal-body"style="padding-left: 22%;">
           {{Form::open(['url'=>'dashboard@modal1'])}}
 
-      
+
         E-mail &nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="packageid" id="packageid0" style="border-radius: 10px;
         width: 47%;
         text-align: center;
@@ -196,9 +196,9 @@
         ชื่อผู้ขาย : &nbsp;{{Auth::user()->firstname}} &nbsp; {{Auth::user()->lastname}}
         <input type="hidden" name="sale_id" id="sale_id" value="{{Auth::user()->id}}">
         <input type="hidden" name="coupon_gen" id="coupon_gen0">
-        
+
         <input type="hidden" name="coupon_id" id="coupon_id0">
-     
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
@@ -210,7 +210,7 @@
 </div>
 
 {{-- ไม่จ่ายจบ --}}
-    
+
     <nav class="navbar navbar-expand-lg m-auto navbar-light" style="background-color: #ffffff;-webkit-box-shadow: 0px 1px 19px -2px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px 1px 19px -2px rgba(0,0,0,0.2);
     box-shadow: 0px 1px 19px -2px rgba(0,0,0,0.2);border-radius: 0px 0px 10px 10px;">
@@ -218,9 +218,9 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
-      
-    
+
+
+
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
@@ -230,6 +230,10 @@
           <li class="nav-item">
             <a href="{{url('')}}/opencoupon" class="nav-item nav-link">
              เปิด package</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{url('')}}/opencoupon/1" tabindex="-1" aria-disabled="true">
+            package ใหม่</a>
           </li>
           <li class="nav-item">
             <a href="{{url('')}}/pay" class="nav-item nav-link">
@@ -257,10 +261,10 @@
 
             <div class="row" style="margin-top:2%;">
               <div class="cal-12" style=" width:100%;">
-                
+
             <h1 class="mt-4">สถานะ Coupon</h1>
-           
-            
+
+
             @php
             $user=Auth::user()->id;
 
@@ -286,13 +290,13 @@
                             @if($mm->coupon_status==0)
                             <span class='badge badge-success'>&nbsp;เปิดการใช้งาน Coupon&nbsp;</span></td>
                           <td>
-                          <input type="button" 
+                          <input type="button"
                           value="ส่ง E-mail (ยังไม่จ่ายเงิน)"
-                          packageid0="{{$mm->email}}" 
-                          coupon_id0="{{$mm->coupon_id}}" 
+                          packageid0="{{$mm->email}}"
+                          coupon_id0="{{$mm->coupon_id}}"
                           coupon_gen0="{{$mm->coupon_gen}}"
-                          data-toggle="modal" 
-                          data-target="#exampleModal0" 
+                          data-toggle="modal"
+                          data-target="#exampleModal0"
                           class="call_modal0 btn btn-success btn-sm"
                           ></td>
                             @endif
@@ -312,14 +316,14 @@
                               ส่ง coupon แล้ว
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </span></td>
-                            
+
                             <td>
                               <input type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ส่ง Coupon อีกครั้ง&nbsp;&nbsp;&nbsp;&nbsp;"
-                              packageid="{{$mm->email}}" coupon_id="{{$mm->coupon_id}}" 
+                              packageid="{{$mm->email}}" coupon_id="{{$mm->coupon_id}}"
                               name_user="{{$mm->firstname}} &nbsp;&nbsp;&nbsp; {{$mm->lastname}}"
                               package_name="{{$mm->package_name}}"
                                 coupon_gen="{{$mm->coupon_gen}}"
-                                data-toggle="modal" data-target="#exampleModal" 
+                                data-toggle="modal" data-target="#exampleModal"
                                 class="call_modal btn btn-info btn-sm">
                             </td>
                          @endif
@@ -335,19 +339,19 @@
                             @endif
 
                         </tr>
-                        @endforeach  
+                        @endforeach
             </table>
-            
+
 
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-    
+
       </div>
       <!-- /#wrapper -->
       {{-- จบบาบน --}}
 
-    
+
   <!-- Menu Toggle Script -->
 
 

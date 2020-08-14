@@ -14,7 +14,7 @@ class JqueryController extends Controller
 
         if ($r->event == "show_packagedetail") {
             $package=DB::table('tr_package_name')->where('uid','=',$r->uid)->first();
-            
+
             $pack['data']           = json_decode($package->item_textall, true);
             $pack['package_name']   = $package->package_name;
             $pack['total_amount']   = $package->total_amount;
@@ -22,7 +22,7 @@ class JqueryController extends Controller
             echo $encode;
         }
 
-        
+
         if ($r->event == "add_table") {
             $price = DB::table('orderitem')->where('order_name',$r->val)->first();
             $json = json_encode($price, JSON_UNESCAPED_UNICODE );
